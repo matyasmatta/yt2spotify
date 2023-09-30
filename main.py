@@ -4,6 +4,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from utils import get_config, Logger
 from tqdm import tqdm  # Import tqdm for the progress bar
+import os
 
 class Spotify:
     def __init__(self, config_location):
@@ -107,7 +108,7 @@ def push_to_spotify(data, PLAYLIST_NAME="Testing playlist", CONFIG_FILE= "config
 
 if __name__ == "__main__":
     global logger
-    logger = Logger()
+    logger = Logger(os.path.basename(__file__))
     result = read()
     write(result)
     push_to_spotify(result, CONFIG_FILE=r"D:\Dokumenty\Klíče\yt2spotify_config.json")

@@ -11,8 +11,8 @@ def get_config(path="D:\Dokumenty\Klíče\config.json"):
         raise ImportError("Invalid config.json file")
     
 class Logger:
-    def __init__(self, max_file_size_bytes=10 * 1024 * 1024):
-        self.filename = "main.log"
+    def __init__(self, filename="main.log", max_file_size_bytes=10 * 1024 * 1024):
+        self.filename = filename[:-3]+".log"
         self.max_file_size_bytes = max_file_size_bytes
         self.check_and_create_log_file()
 
